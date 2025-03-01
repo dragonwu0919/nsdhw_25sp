@@ -56,6 +56,7 @@ cp $solution_path/countline.py .
 result=$(env PYTHON_BIN=python2 ./countline.py countline.py 2>&1) ; ret=$?
 if [ $ret -ne 0 ] ; then
   echo "\"env PYTHON_BIN=python2 ./countline.py\" fails ; NO POINT"
+  echo "\$ret = $ret"
 else
   echo "\"env PYTHON_BIN=python2 ./countline.py countline.py\" output: \"$result\""
   if [ "$(wc -l countline.py | tr -dc '0-9')" != "$(echo $result | tr -dc '0-9')" ] ; then
