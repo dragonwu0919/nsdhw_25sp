@@ -9,7 +9,7 @@ if "--no-reexec" not in sys.argv:
     python_bin = os.getenv("PYTHON_BIN")
     if python_bin: # python_bin specified 
         if not os.path.exists(python_bin) or not python_bin:
-            sys.stderr.write("Error: Specified Python binary '{}' not found\n".format(python_bin))
+            sys.stderr.write("exec: {}: not found\n".format(python_bin))
             sys.exit(1)
         else: 
             subprocess.call([python_bin] + sys.argv + ["--no-reexec"])
